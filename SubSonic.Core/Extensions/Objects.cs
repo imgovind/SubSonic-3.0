@@ -170,7 +170,7 @@ namespace SubSonic.Extensions
 
     	public static ITable ToSchemaTable(this Type type, IDataProvider provider)
         {
-            string tableName = type.Name;
+            string tableName = type.Name.ToLowerInvariant();
             tableName = tableName.MakePlural();
             var result = new DatabaseTable(tableName, provider);
             result.ClassName = type.Name;
